@@ -16,6 +16,8 @@ There are a couple of system-level things that you should install and setup.
 
 [Install](https://www.npmjs.com/package/node-lambda) the `node-lambda` package. This is a command-line tool for locally running and remotely deploying your node.js applications to Amazon Lambda.
 
+Here is some [more information](http://radify.io/blog/aws-lambda-workflow/) on using `node-lambda`
+
 ## Setup A Node App
 
 To setup a new node project you need to create some directories and files:
@@ -228,6 +230,11 @@ You see that you now have an Invoke URL. That's the base URL for all the routes 
 ### CloudWatch
 
 You can click the boxes to log stuff in CloudWatch. If you do that you'll need to fill in the ARN for the IAM role. Click the `APIs` second menu tab, and then click `Settings`.
+
+### API Gateway via Grunt
+
+An alternative to many of the steps in the configuration and deploying of the API Gateway can be accomplished with this
+[Grunt plugin](https://github.com/spreaker/grunt-aws-apigateway).
 
 ## To Test:
 
