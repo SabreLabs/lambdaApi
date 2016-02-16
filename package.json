@@ -1,0 +1,15 @@
+{
+  "name": "lambdaApi",
+  "version": "0.0.1",
+  "description": "Lambda Test API",
+  "author": "Barrett A. Clark <barrett.clark@sabre.com>",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
+  },
+  "scripts": {
+    "zip": "zip -r ../lambdaApi.zip *"
+  }
+}
