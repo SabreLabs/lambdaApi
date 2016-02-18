@@ -100,34 +100,6 @@ Run the test by typing in `mocha` and hitting enter. It passes, yes?
 
 If you wanted to manually upload your code you could create the required zipfile by typing `npm run zip`. This will create a zip file with the entire project and put it one directory up. Use this if you want to manually upload your source.
 
-## AWS Lambda
-
-Sweet. Now we are ready to create the Lambda function. You can do this in the [AWS console](https://console.aws.amazon.com/lambda/home), or from the command line. To do it from the command line you need to run `node-lambda setup`, which will create an `.env` file in the project directory that you will need to fill in. Consider adding that file to your `.gitignore` so that you don't commit secrets to the repo.
-
-To push create the Lambda function and push the code, run `node-lambda deploy`. Boom - you get some nice output that tells you that you've got a fancy new Lambda function IN THE CLOUD.
-
-### Test the Lambda function
-
-Configure the test event with some data. It doesn't really matter what you send, but you can send this:
-
-	{
-	  "key3": "value3",
-	  "key2": "value2",
-	  "other_key": "Hello, World!"
-	}
-
-Save and run the test, and you should see that it was a success with the following output:
-
-	{
-	  "received_as_input": {
-	    "key3": "value3",
-	    "key2": "value2",
-	    "other_key": "Hello, World!"
-	  }
-	}
-
-Amazing.
-
 ## IAM Policy
 
 This is where it gets weird. You have to create a security role with permissions across a couple of AWS services. Go to the [IAM](https://console.aws.amazon.com/iam/home) service, and select `Policies` from the side navigation. You want to create your own policy. I called mine **APIGatewayCloudWatchLambdaInvokePolicy**. The description is "Enables API Gateway to call Lambda functions and log to Cloud Watch". Then copy this JSON in for the Policy Document:
@@ -199,6 +171,34 @@ Put this in for the Trust Relationships:
 	}
 
 Save it and grab the ARN.
+
+## AWS Lambda
+
+Sweet. Now we are ready to create the Lambda function. You can do this in the [AWS console](https://console.aws.amazon.com/lambda/home), or from the command line. To do it from the command line you need to run `node-lambda setup`, which will create an `.env` file in the project directory that you will need to fill in. Consider adding that file to your `.gitignore` so that you don't commit secrets to the repo.
+
+To push create the Lambda function and push the code, run `node-lambda deploy`. Boom - you get some nice output that tells you that you've got a fancy new Lambda function IN THE CLOUD.
+
+### Test the Lambda function
+
+Configure the test event with some data. It doesn't really matter what you send, but you can send this:
+
+	{
+	  "key3": "value3",
+	  "key2": "value2",
+	  "other_key": "Hello, World!"
+	}
+
+Save and run the test, and you should see that it was a success with the following output:
+
+	{
+	  "received_as_input": {
+	    "key3": "value3",
+	    "key2": "value2",
+	    "other_key": "Hello, World!"
+	  }
+	}
+
+Amazing.
 
 ## API Gateway
 
